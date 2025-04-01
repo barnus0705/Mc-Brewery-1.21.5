@@ -12,7 +12,7 @@ public class ModItems {
             DeferredRegister.create(ForgeRegistries.ITEMS, BeerBrewery.MOD_ID);
 
     public static final RegistryObject<Item> HOPS = ITEMS.register("hops",
-            () -> new Item(new Item.Properties().setId(ITEMS.key("hops"))));
+            () -> new Item(new Item.Properties().food(ModFoodProperties.HOPS).setId(ITEMS.key("hops"))));
 
     public static void register(IEventBus eventBus) {
         ITEMS.register(eventBus);

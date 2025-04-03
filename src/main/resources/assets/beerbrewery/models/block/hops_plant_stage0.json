@@ -1,0 +1,6 @@
+{
+  "parent": "block/crop",
+  "textures": {
+    "crop": "beerbrewery:block/hops_plant_stage0"
+  }
+}

@@ -8,8 +8,10 @@ import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.material.MapColor;
+import net.minecraft.world.level.material.PushReaction;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -29,10 +31,11 @@ public class ModBlocks {
             () -> new HopsPlantBlock(
                     BlockBehaviour.Properties.of()
                             .mapColor(MapColor.PLANT) // The color this block will have on maps and foliage
-                            .noCollission()           // No collision box (walk through like plants)
-                            .instabreak()             // Instantly breaks when harvested
-                            .sound(Blocks.WHEAT.defaultBlockState().getSoundType()) // Matches wheat sounds
-                            .randomTicks()            // Enables random growth ticks (if HopsPlantBlock supports growth)
+                            .noCollission()
+                            .randomTicks()
+                            .instabreak()
+                            .sound(SoundType.CROP)
+                            .pushReaction(PushReaction.DESTROY)
                             .setId(ResourceKey.create(Registries.BLOCK, ResourceLocation.fromNamespaceAndPath(BeerBrewery.MOD_ID, "hops_plant")))
             ));
 

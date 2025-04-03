@@ -15,8 +15,8 @@ import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 
 public class HopsPlantBlock extends CropBlock {
-    private static final IntegerProperty AGE = IntegerProperty.create("age", 0, 6);
-    private static final VoxelShape[] SHAPES = new VoxelShape[] {
+    public static final IntegerProperty AGE = IntegerProperty.create("age", 0, 6);
+    public static final VoxelShape[] SHAPES = new VoxelShape[] {
             Block.box(0, 0, 0, 16, 2, 16), // Age 0
             Block.box(0, 0, 0, 16, 4, 16), // Age 1
             Block.box(0, 0, 0, 16, 6, 16), // etc.
@@ -59,4 +59,10 @@ public class HopsPlantBlock extends CropBlock {
     public void randomTick(BlockState state, ServerLevel world, BlockPos pos, RandomSource random) {
         super.randomTick(state, world, pos, random);
     }
+
+    @Override
+    public BlockState getStateForAge(int age) {
+        return this.defaultBlockState().setValue(AGE, age);
+    }
+
 }

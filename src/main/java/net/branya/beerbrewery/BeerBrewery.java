@@ -1,6 +1,7 @@
 package net.branya.beerbrewery;
 
 import com.mojang.logging.LogUtils;
+import net.branya.beerbrewery.block.ModBlocks;
 import net.branya.beerbrewery.item.ModItems;
 import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraftforge.api.distmarker.Dist;
@@ -31,6 +32,7 @@ public class BeerBrewery {
         MinecraftForge.EVENT_BUS.register(this);
 
         ModItems.register(modEventBus);
+        ModBlocks.register(modEventBus);
 
         // Register the item to a creative tab
         modEventBus.addListener(this::addCreative);

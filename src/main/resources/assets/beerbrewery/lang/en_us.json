@@ -1,3 +1,9 @@
 {
-  "item.beerbrewery.hops": "Hops"
+  "item.beerbrewery.hops": "Hops",
+
+  "item.minecraft.lingering_potion.effect.beer": "Not Aproved Beer",
+  "item.minecraft.splash_potion.effect.beer": "What have you done Beer",
+  "item.minecraft.potion.effect.beer": "Beer",
+
+  "effect.beerbrewery.food_effect": "Instant Food + Nausea"
 }

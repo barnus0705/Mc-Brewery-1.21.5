@@ -2,7 +2,9 @@ package net.branya.beerbrewery;
 
 import com.mojang.logging.LogUtils;
 import net.branya.beerbrewery.block.ModBlocks;
+import net.branya.beerbrewery.effect.ModEffects;
 import net.branya.beerbrewery.item.ModItems;
+import net.branya.beerbrewery.potion.ModPotions;
 import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
@@ -33,6 +35,8 @@ public class BeerBrewery {
 
         ModItems.register(modEventBus);
         ModBlocks.register(modEventBus);
+        ModPotions.register(modEventBus);
+        ModEffects.register(modEventBus);
 
         // Register the item to a creative tab
         modEventBus.addListener(this::addCreative);
@@ -58,6 +62,7 @@ public class BeerBrewery {
         if (event.getTabKey() == CreativeModeTabs.INGREDIENTS) {
             event.accept(ModItems.HOPS);
         }
+
     }
 
     // You can use SubscribeEvent and let the Event Bus discover methods to call

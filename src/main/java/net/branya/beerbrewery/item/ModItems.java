@@ -3,6 +3,8 @@ package net.branya.beerbrewery.item;
 import net.branya.beerbrewery.BeerBrewery;
 import net.branya.beerbrewery.block.mechanic.HopsBushUsage;
 import net.branya.beerbrewery.block.mechanic.HopsItemUsage;
+import net.minecraft.world.effect.MobEffectInstance;
+import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.item.Item;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;

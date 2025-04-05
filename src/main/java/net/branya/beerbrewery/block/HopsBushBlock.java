@@ -26,19 +26,35 @@ public class HopsBushBlock extends SweetBerryBushBlock {
     }
 
     @Override
-    protected InteractionResult useWithoutItem(BlockState p_330186_, Level p_334365_, BlockPos p_328580_, Player p_332233_, BlockHitResult p_329481_) {
-        int i = p_330186_.getValue(AGE);
-        boolean flag = i == 3;
-        if (i > 1) {
-            int j = 1 + p_334365_.random.nextInt(2);
-            popResource(p_334365_, p_328580_, new ItemStack(ModItems.HOPS.get(), j + (flag ? 1 : 0)));
-            p_334365_.playSound(null, p_328580_, SoundEvents.SWEET_BERRY_BUSH_PICK_BERRIES, SoundSource.BLOCKS, 1.0F, 0.8F + p_334365_.random.nextFloat() * 0.4F);
-            BlockState blockstate = p_330186_.setValue(AGE, 1);
-            p_334365_.setBlock(p_328580_, blockstate, 2);
-            p_334365_.gameEvent(GameEvent.BLOCK_CHANGE, p_328580_, GameEvent.Context.of(p_332233_, blockstate));
+    protected InteractionResult useWithoutItem(BlockState state, Level level, BlockPos pos, Player player, BlockHitResult hitResult) {
+        int age = state.getValue(AGE); // Get the age property of the block
+
+        if (age == 3) { // Only allow harvesting at stage 3
+            // Drop exactly 1 hop item
+            popResource(level, pos, new ItemStack(ModItems.HOPS.get(), 1));
+
+            // Play the sweet berry bush picking sound effect
+            level.playSound(
+                    null,
+                    pos,
+                    SoundEvents.SWEET_BERRY_BUSH_PICK_BERRIES,
+                    SoundSource.BLOCKS,
+                    1.0F,
+                    0.8F + level.random.nextFloat() * 0.4F
+            );
+
+            // Reset the bush to stage 1 after harvesting
+            BlockState newState = state.setValue(AGE, 1);
+            level.setBlock(pos, newState, 2);
+
+            // Trigger block change game event
+            level.gameEvent(GameEvent.BLOCK_CHANGE, pos, GameEvent.Context.of(player, newState));
+
             return InteractionResult.SUCCESS;
         } else {
-            return super.useWithoutItem(p_330186_, p_334365_, p_328580_, p_332233_, p_329481_);
+            // If the bush isn't fully grown (AGE != 3), do nothing special
+            return InteractionResult.PASS;
         }
     }
+
 }

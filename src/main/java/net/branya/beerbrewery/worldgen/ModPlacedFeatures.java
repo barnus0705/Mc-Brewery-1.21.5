@@ -20,7 +20,7 @@ public class ModPlacedFeatures {
         var configuredFeatures = context.lookup(Registries.CONFIGURED_FEATURE);
 
         register(context, HOPS_BUSH_KEY, configuredFeatures.getOrThrow(ModConfiguredFeatures.HOPS_BUSH_KEY),
-                List.of(RarityFilter.onAverageOnceEvery(2), InSquarePlacement.spread(),
+                List.of(RarityFilter.onAverageOnceEvery(48), InSquarePlacement.spread(),
                         PlacementUtils.HEIGHTMAP_WORLD_SURFACE, BiomeFilter.biome()));
     }
 

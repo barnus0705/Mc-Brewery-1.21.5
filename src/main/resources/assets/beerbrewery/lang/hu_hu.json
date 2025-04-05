@@ -1,3 +1,11 @@
 {
-  "item.beerbrewery.hops": "Komló"
+  "item.beerbrewery.hops": "Komló",
+
+  "item.minecraft.lingering_potion.effect.beer": "Fasznak csinálsz ilyet",
+  "item.minecraft.splash_potion.effect.beer": "Te mit tetté?",
+  "item.minecraft.potion.effect.beer": "Sör",
+
+  "effect.beerbrewery.food_effect": "Azonalli kaja + Hányinger"
+
+
 }

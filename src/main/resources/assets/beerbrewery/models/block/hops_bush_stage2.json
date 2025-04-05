@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cross",
+  "textures": {
+    "cross": "beerbrewery:block/hops_bush_stage2"
+  }
+}

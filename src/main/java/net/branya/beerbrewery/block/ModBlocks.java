@@ -38,10 +38,15 @@ public class ModBlocks {
                             .pushReaction(PushReaction.DESTROY)
                             .setId(ResourceKey.create(Registries.BLOCK, ResourceLocation.fromNamespaceAndPath(BeerBrewery.MOD_ID, "hops_plant")))
             ));
-
-    // Register the corresponding block item for the hops plant block
-    public static final RegistryObject<Item> HOPS_PLANT_ITEM = ITEMS.register("hops_plant",
-            () -> new BlockItem(HOPS_PLANT.get(), new Item.Properties().setId(ITEMS.key("hops_plant"))));
+    public static final RegistryObject<Block> HOPS_BUSH = BLOCKS.register("hops_bush",
+            () -> new HopsBushBlock(BlockBehaviour.Properties.of()
+                    .mapColor(MapColor.PLANT)
+                    .randomTicks()
+                    .noCollission()
+                    .sound(SoundType.SWEET_BERRY_BUSH)
+                    .pushReaction(PushReaction.DESTROY)
+                    .setId(ResourceKey.create(Registries.BLOCK, ResourceLocation.fromNamespaceAndPath(BeerBrewery.MOD_ID, "hops_bush")))
+    ));
 
     // Method to bind the block/item registries to the event bus
     public static void register(IEventBus eventBus) {

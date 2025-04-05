@@ -2,17 +2,17 @@ package net.branya.beerbrewery.block.mechanic;
 
 import net.branya.beerbrewery.block.ModBlocks;
 import net.minecraft.core.BlockPos;
-import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 
-public class HopsItemUsage extends Item {
-    public HopsItemUsage(Properties properties) {
+public class HopsBushUsage extends Item {
+    public HopsBushUsage(Properties properties) {
         super(properties);
     }
 
@@ -21,21 +21,20 @@ public class HopsItemUsage extends Item {
         Level level = context.getLevel();
         BlockPos pos = context.getClickedPos();
         Player player = context.getPlayer();
-        InteractionHand hand = context.getHand();
 
         // Get the block below where the player clicked
         Block blockBelow = level.getBlockState(pos).getBlock();
 
-        // Check if the block below is farmland
-        if (blockBelow == net.minecraft.world.level.block.Blocks.FARMLAND) {
-            BlockPos plantPos = pos.above(); // Position above the farmland
-            BlockState hopsPlantState = ModBlocks.HOPS_PLANT.get().defaultBlockState();
+        // Check if the block below is grass block or dirt
+        if (blockBelow == Blocks.GRASS_BLOCK || blockBelow == Blocks.DIRT) {
+            BlockPos plantPos = pos.above(); // Position above the grass or dirt
+            BlockState hopsBushState = ModBlocks.HOPS_BUSH.get().defaultBlockState(); // Use the custom "HopsBushBlock"
 
-            // Ensure the position is air before planting
+            // Ensure the position above is air before planting
             if (level.getBlockState(plantPos).isAir()) {
-                level.setBlock(plantPos, hopsPlantState, 3);
+                level.setBlock(plantPos, hopsBushState, 3); // Place the HopsBushBlock
 
-                // Consume one hops item from the player's hand
+                // Consume one hops item from the player's hand if the player is not in creative
                 if (!player.isCreative()) {
                     context.getItemInHand().shrink(1);
                 }
@@ -43,6 +42,7 @@ public class HopsItemUsage extends Item {
                 return InteractionResult.SUCCESS;
             }
         }
+
         return InteractionResult.FAIL;
     }
 }

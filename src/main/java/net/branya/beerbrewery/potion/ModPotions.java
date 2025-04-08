@@ -19,6 +19,8 @@ public class ModPotions {
     // Registry Object for a custom "Beer" potion
     public static final RegistryObject<Potion> BEER = POTIONS.register("beer",
             () -> new Potion("beer", new MobEffectInstance(ModEffects.FOOD_EFFECT.getHolder().get(), 200, 0)));
+    public static final RegistryObject<Potion> RADLER = POTIONS.register("radler",
+            () -> new Potion("radler", new MobEffectInstance(ModEffects.RADLER_EFFCET.getHolder().get(), 200, 0)));
 
     public static void register(IEventBus eventBus) {
         POTIONS.register(eventBus);

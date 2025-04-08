@@ -4,6 +4,7 @@ package net.branya.beerbrewery.event;
 import net.branya.beerbrewery.BeerBrewery;
 import net.branya.beerbrewery.item.ModItems;
 import net.branya.beerbrewery.potion.ModPotions;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.item.alchemy.PotionBrewing;
 import net.minecraft.world.item.alchemy.Potions;
 import net.minecraftforge.event.brewing.BrewingRecipeRegisterEvent;
@@ -17,5 +18,6 @@ public class ModEvents {
         PotionBrewing.Builder builder = event.getBuilder();
 
         builder.addMix(Potions.AWKWARD, ModItems.HOPS.get(), ModPotions.BEER.getHolder().get());
+        builder.addMix(ModPotions.BEER.getHolder().get(), Items.SWEET_BERRIES, ModPotions.RADLER.getHolder().get());
     }
 }

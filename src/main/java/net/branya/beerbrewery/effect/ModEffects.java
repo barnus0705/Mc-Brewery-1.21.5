@@ -16,6 +16,9 @@ public class ModEffects {
     public static final RegistryObject<MobEffect> FOOD_EFFECT = MOB_EFFECT.register("food_effect",
             () -> new FoodEffect(MobEffectCategory.BENEFICIAL, 0xF9A602));
 
+    public static final RegistryObject<MobEffect> RADLER_EFFCET = MOB_EFFECT.register("radler_effect",
+            () -> new RadlerEffect(MobEffectCategory.BENEFICIAL, 0xD94A6A));
+
     public static void register(IEventBus eventBus) {
         MOB_EFFECT.register(eventBus);
     }

@@ -5,7 +5,12 @@
   "item.minecraft.splash_potion.effect.beer": "Te mit tetté?",
   "item.minecraft.potion.effect.beer": "Sör",
 
-  "effect.beerbrewery.food_effect": "Azonalli kaja + Hányinger"
+  "item.minecraft.lingering_potion.effect.radler": "Neked tényleg bajod van",
+  "item.minecraft.splash_potion.effect.radler": "Már nem mondok semmit",
+  "item.minecraft.potion.effect.radler": "Gyümis sör",
+
+  "effect.beerbrewery.food_effect": "Azonalli kaja + Hányinger",
+  "effect.beerbrewery.radler_effect": "Azonalli kaja + Hányinger + Gyorsaság"
 
 
 }
